@@ -1,0 +1,12 @@
+apiVersion: vendir.k14s.io/v1alpha1
+kind: Config
+directories:
+- path: vendor/
+  contents:
+  - path: github.com/zendesk/config-service-data/
+    git:
+      url: https://github.com/zendesk/config-service-data.git
+      ref: origin/master
+    includePaths:
+    - 'data/zcfn.yml'
+
