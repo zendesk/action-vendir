@@ -1,0 +1,24 @@
+name: 'action-vendir'
+description: 'Executes vendir with provided args'
+branding:
+  icon: 'align-justify'
+  color: 'blue'
+inputs:
+  token:
+    description: GitHub token to authenticate `git clone` requests. Required
+    required: true
+  locked:
+    description: Whether vendir should be invoked with `--locked` option
+    required: false
+    default: "false"
+  vendir_file:
+    description: File that defines dependencies.
+    required: false
+    default: "vendir.yml"
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.token }}
+    - ${{ inputs.locked }}
+    - ${{ inputs.vendir_file }}
