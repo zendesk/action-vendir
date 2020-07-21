@@ -7,11 +7,12 @@ or
 
 ## Inputs
 
-* `token` - specifies the GitHub OAuth token to use when cloning. REQUIRED
-* `locked` - when set to `true`, `vendir` will be executed with the `--locked`
-option. OPTIONAL, defaults to `false`
-* `vendir_file` - specifies the YAML file that `vendir` should evaluate. 
-OPTIONAL, defaults to `vendir.yml`
+* `token` - GitHub token to authenticate `git clone` requests. REQUIRED
+* `version` - Version of `vendir` to install. OPTIONAL, defaults to `latest`
+* `locked` - Whether or not vendir should be invoked with `--locked` option.
+OPTIONAL, defaults to "false"
+* `vendir_file` - File that defines dependencies. OPTIONAL, defaults to
+`vendir.yml`
 
 
 ## Output
@@ -25,7 +26,7 @@ This Action has no outputs.
 ```yaml
 steps:
   - id: action-vendir
-    uses: zendesk/action-vendir@v1
+    uses: zendesk/action-vendir@v2
     with:
       token: ${{ secrets.github_token }}
 ```

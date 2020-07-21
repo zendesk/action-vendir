@@ -5,20 +5,20 @@ branding:
   color: 'blue'
 inputs:
   token:
-    description: GitHub token to authenticate `git clone` requests. Required
+    description: GitHub token to authenticate `git clone` requests. REQUIRED
     required: true
+  version:
+    description: Version of `vendir` to install. OPTIONAL, defaults to `latest`
+    required: false
+    default: "latest"
   locked:
-    description: Whether vendir should be invoked with `--locked` option
+    description: Whether or not vendir should be invoked with `--locked` option. OPTIONAL, defaults to "false"
     required: false
     default: "false"
   vendir_file:
-    description: File that defines dependencies.
+    description: File that defines dependencies. OPTIONAL, defaults to "vendir.yml"
     required: false
     default: "vendir.yml"
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
-  args:
-    - ${{ inputs.token }}
-    - ${{ inputs.locked }}
-    - ${{ inputs.vendir_file }}
+  using: 'node12'
+  main: 'index.js'

@@ -1,0 +1,25 @@
+apiVersion: vendir.k14s.io/v1alpha1
+kind: Config
+directories:
+- path: vendor/
+  contents:
+  - path: github.com/zendesk/jsonnet-spinnaker/
+    git:
+      url: git@github.com:zendesk/jsonnet-spinnaker.git
+      ref: origin/master
+    includePaths:
+      # Alternatively `lib/*` for users who don't care about being sparse
+      - 'lib/Artifacts.libsonnet'
+      - 'lib/Pipeline.libsonnet'
+      - 'lib/PipelineMetadata.libsonnet'
+      - 'lib/Stages.libsonnet'
+      - 'lib/Triggers.libsonnet'
+  - path: github.com/zendesk/jsonnet-kubernetes/
+    git:
+      url: git@github.com:zendesk/jsonnet-kubernetes.git
+      ref: origin/master
+    includePaths:
+      # Alternatively `lib/*` for users who don't care about being sparse
+      - 'lib/K8s.libsonnet'
+      - 'lib/Labels.libsonnet'
+      - 'lib/ZendeskPod.libsonnet'

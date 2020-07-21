@@ -1,0 +1,26 @@
+{
+  "name": "action-vendir",
+  "version": "1.0.0",
+  "description": "A GitHub action for executing vendir. Typical usage will be to  * vendor copies of a third party repo's files and create a PR to the local repo or * vendor copies of a third party repo's files to use within another action",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zendesk/action-vendir.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zendesk/action-vendir/issues"
+  },
+  "homepage": "https://github.com/zendesk/action-vendir#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.4",
+    "@actions/exec": "^1.0.4",
+    "@actions/github": "^4.0.0",
+    "@actions/io": "^1.0.2"
+  }
+}
