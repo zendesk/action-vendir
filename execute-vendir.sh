@@ -24,7 +24,7 @@ else
   LOCK_OPTION=""
 fi
 
-./vendir sync $LOCK_OPTION -f $VENDIR_FILE
+VENDIR_GITHUB_API_TOKEN=$TOKEN ./vendir sync $LOCK_OPTION -f $VENDIR_FILE
 
 git config --unset-all --global url."https://oauth-token:${TOKEN}@github.com/".insteadof
 cat ~/.gitconfig
