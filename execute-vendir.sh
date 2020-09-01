@@ -1,4 +1,5 @@
 #!/bin/bash -ex
+set -ex
 
 VENDIR_URL=$1
 TOKEN=$2
