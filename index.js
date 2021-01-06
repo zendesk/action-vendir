@@ -7,7 +7,7 @@ const path = require('path')
 const fetchReleases = async () => {
   const version = core.getInput('version')
   const versionPath = version == 'latest' ? 'latest' : `tags/${version}`
-  const url = `https://api.github.com/repos/k14s/vendir/releases/${versionPath}`
+  const url = `https://api.github.com/repos/vmware-tanzu/carvel-vendir/releases/${versionPath}`
 
   core.info(`Fetching Vendir release from ${url}`)
 
