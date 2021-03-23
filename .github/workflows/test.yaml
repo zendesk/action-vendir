@@ -38,6 +38,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: zendesk/checkout@v2
+      - name: create vendir.yml
         working_directory: kubernetes
         run: |
             cat >vendir.yml <<EOL
