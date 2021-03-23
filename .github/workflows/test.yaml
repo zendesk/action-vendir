@@ -39,7 +39,7 @@ jobs:
     steps:
       - uses: zendesk/checkout@v2
       - name: create vendir.yml
-        working_directory: kubernetes
+        working-directory: kubernetes
         run: |
             cat >vendir.yml <<EOL
             apiVersion: vendir.k14s.io/v1alpha1
@@ -60,10 +60,10 @@ jobs:
           token: ${{ secrets.GLOVER_ACCESS_TOKEN }}
           working_dir: kubernetes
       - name: verify vendir.lock.yml
-        working_directory: kubernetes
+        working-directory: kubernetes
         run: |
           cat vendir.lock.yml
       - name: verify vendored directory
-        working_directory: kubernetes
+        working-directory: kubernetes
         run: |
           ls vendor/github.com/zendesk/jsonnet-kubernetes/lib/
