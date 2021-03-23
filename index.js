@@ -69,10 +69,11 @@ const run = async () => {
   const token = core.getInput('token')
   const locked = core.getInput('locked')
   const vendirFile = core.getInput('vendir_file')
+  const workingDir = core.getInput('working_dir')
 
   try {
     const url = await fetchReleases()
-    await exec(path.join(__dirname, 'execute-vendir.sh'), [url, token, locked, vendirFile])
+    await exec(path.join(__dirname, 'execute-vendir.sh'), [url, token, locked, vendirFile, workingDir])
   } catch (error) {
     core.setFailed(`Action failed with error: ${error}`)
   }

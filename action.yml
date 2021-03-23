@@ -19,6 +19,10 @@ inputs:
     description: File that defines dependencies. OPTIONAL, defaults to "vendir.yml"
     required: false
     default: "vendir.yml"
+  working_dir:
+    description: Working directory to switch to prior to running vendir, defaults to "."
+    required: false
+    default: "."
 runs:
   using: 'node12'
   main: 'index.js'

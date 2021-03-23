@@ -33,3 +33,36 @@ jobs:
       - name: verify vendored directory
         run: |
           ls vendor/github.com/zendesk/jsonnet-kubernetes/lib/
+  
+  test-working-dir:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: zendesk/checkout@v2
+        working_directory: kubernetes
+        run: |
+            cat >vendir.yml <<EOL
+            apiVersion: vendir.k14s.io/v1alpha1
+            kind: Config
+            directories:
+            - path: vendor
+              contents:
+              - path: github.com/zendesk/jsonnet-kubernetes/
+                git:
+                  url: git@github.com:zendesk/jsonnet-kubernetes.git
+                  ref: origin/master
+                includePaths:
+                  - 'lib/K8s.libsonnet'
+            EOL
+      - name: Execute vendir
+        uses: ./
+        with:
+          token: ${{ secrets.GLOVER_ACCESS_TOKEN }}
+          working_dir: kubernetes
+      - name: verify vendir.lock.yml
+        working_directory: kubernetes
+        run: |
+          cat vendir.lock.yml
+      - name: verify vendored directory
+        working_directory: kubernetes
+        run: |
+          ls vendor/github.com/zendesk/jsonnet-kubernetes/lib/
