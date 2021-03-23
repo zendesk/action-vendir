@@ -38,6 +38,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: zendesk/checkout@v2
+      - name: create working directory
+        run:
+          mkdir kubernetes
       - name: create vendir.yml
         working-directory: kubernetes
         run: |
