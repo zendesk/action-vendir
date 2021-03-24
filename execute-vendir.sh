@@ -4,6 +4,9 @@ VENDIR_URL=$1
 TOKEN=$2
 LOCKED=$3
 VENDIR_FILE=$4
+WORKING_DIR=$5
+
+cd $WORKING_DIR
 
 # Download `vendir` binary
 echo "Downloading vendir from: $VENDIR_URL"
