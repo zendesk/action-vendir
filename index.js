@@ -1,14 +1,15 @@
 const core = require('@actions/core')
 const io = require('@actions/io')
 const { exec } = require('@actions/exec')
-const https = require('https')
+const { https } = require('follow-redirects');
 const path = require('path')
 
 const fetchReleases = async () => {
   const version = core.getInput('version')
   const versionPath = version == 'latest' ? 'latest' : `tags/${version}`
   const url = `https://api.github.com/repos/vmware-tanzu/carvel-vendir/releases/${versionPath}`
-
+  core.info(`version path = ${versionPath}`)
+  core.info(`URL = ${url}`)
   core.info(`Fetching Vendir release from ${url}`)
 
   let release
