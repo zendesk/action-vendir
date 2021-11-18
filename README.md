@@ -13,8 +13,8 @@ or
 OPTIONAL, defaults to "false"
 * `vendir_file` - File that defines dependencies. OPTIONAL, defaults to
 `vendir.yml`
-* `working_dir` - Working directory to switch to prior to running vendir, 
-defaults to `.`
+* `working_dir` - Working directory to switch to prior to installing and running vendir, defaults to "."
+* `target_dir` - Target directory for the vendir process, defaults to "."
 
 
 ## Output

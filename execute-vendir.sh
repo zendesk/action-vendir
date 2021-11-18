@@ -5,6 +5,7 @@ TOKEN=$2
 LOCKED=$3
 VENDIR_FILE=$4
 WORKING_DIR=$5
+TARGET_DIR=$6
 
 cd $WORKING_DIR
 
@@ -27,7 +28,14 @@ else
   LOCK_OPTION=""
 fi
 
-VENDIR_GITHUB_API_TOKEN=$TOKEN ./vendir sync $LOCK_OPTION -f $VENDIR_FILE
+if [ -z "$TARGET_DIR" ];
+then
+  TARGET_OPTION=""
+else
+  TARGET_OPTION="--chdir $TARGET_DIR"
+fi
+
+VENDIR_GITHUB_API_TOKEN=$TOKEN ./vendir sync $LOCK_OPTION $TARGET_OPTION -f $VENDIR_FILE 
 
 git config --unset-all --global url."https://oauth-token:${TOKEN}@github.com/".insteadof
 cat ~/.gitconfig
