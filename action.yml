@@ -20,7 +20,11 @@ inputs:
     required: false
     default: "vendir.yml"
   working_dir:
-    description: Working directory to switch to prior to running vendir, defaults to "."
+    description: Working directory to switch to prior to installing and running vendir, defaults to "."
+    required: false
+    default: "."
+  target_dir:
+    description: Target directory for the vendir process, defaults to "."
     required: false
     default: "."
 runs:
