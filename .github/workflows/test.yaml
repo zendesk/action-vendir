@@ -26,7 +26,7 @@ jobs:
       - name: Execute vendir
         uses: ./
         with:
-          token: ${{ secrets.GLOVER_ACCESS_TOKEN }}
+          token: ${{ secrets.ORG_FINE_GRAINED_PAT }}
       - name: verify vendir.lock.yml
         run: |
           cat vendir.lock.yml
@@ -60,7 +60,7 @@ jobs:
       - name: Execute vendir
         uses: ./
         with:
-          token: ${{ secrets.GLOVER_ACCESS_TOKEN }}
+          token: ${{ secrets.ORG_FINE_GRAINED_PAT }}
           working_dir: kubernetes
       - name: verify vendir.lock.yml
         working-directory: kubernetes
@@ -97,7 +97,7 @@ jobs:
       - name: Execute vendir
         uses: ./
         with:
-          token: ${{ secrets.GLOVER_ACCESS_TOKEN }}
+          token: ${{ secrets.ORG_FINE_GRAINED_PAT }}
           target_dir: kubernetes
       - name: verify vendir.lock.yml
         working-directory: kubernetes
