@@ -7,7 +7,7 @@ jobs:
     name: test
     runs-on: ubuntu-latest
     steps:
-      - uses: zendesk/checkout@v2
+      - uses: zendesk/checkout@v3
       - name: create vendir.yml
         run: |
           cat >vendir.yml <<EOL
@@ -26,7 +26,7 @@ jobs:
       - name: Execute vendir
         uses: ./
         with:
-          token: ${{ secrets.GLOVER_ACCESS_TOKEN }}
+          token: ${{ secrets.ORG_FINE_GRAINED_PAT }}
       - name: verify vendir.lock.yml
         run: |
           cat vendir.lock.yml
@@ -37,7 +37,7 @@ jobs:
   test-working-dir:
     runs-on: ubuntu-latest
     steps:
-      - uses: zendesk/checkout@v2
+      - uses: zendesk/checkout@v3
       - name: create working directory
         run:
           mkdir kubernetes
@@ -60,7 +60,7 @@ jobs:
       - name: Execute vendir
         uses: ./
         with:
-          token: ${{ secrets.GLOVER_ACCESS_TOKEN }}
+          token: ${{ secrets.ORG_FINE_GRAINED_PAT }}
           working_dir: kubernetes
       - name: verify vendir.lock.yml
         working-directory: kubernetes
@@ -74,7 +74,7 @@ jobs:
   test-target-dir:
     runs-on: ubuntu-latest
     steps:
-      - uses: zendesk/checkout@v2
+      - uses: zendesk/checkout@v3
       - name: create target directory
         run:
           mkdir kubernetes
@@ -97,7 +97,7 @@ jobs:
       - name: Execute vendir
         uses: ./
         with:
-          token: ${{ secrets.GLOVER_ACCESS_TOKEN }}
+          token: ${{ secrets.ORG_FINE_GRAINED_PAT }}
           target_dir: kubernetes
       - name: verify vendir.lock.yml
         working-directory: kubernetes
